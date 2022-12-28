@@ -1,0 +1,23 @@
+.alert ul {
+    margin-bottom: 0;
+    padding-left: 0;
+    list-style: none;
+}
+
+.asteriskField {
+    display: none;
+}
+
+.border-white-fade {
+    border-color: rgba(255,255,255,.15) !important;
+}
+
+.navbar-fixed-container {
+    height: 56px;
+}
+
+@media (min-width: 768px) {
+    .border-md-top-0 {
+        border-top: 0 !important;
+    }
+}

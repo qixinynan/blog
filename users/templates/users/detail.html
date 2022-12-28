@@ -1,0 +1,5 @@
+{% extends "base.html" %}
+{% block content %}
+    你好，{{ user.username }} <a class="link-primary" href="{% url 'users:logout' %}">退出登录</a>
+    <p>很明显，此页面还没有完成。</p>
+{% endblock %}
