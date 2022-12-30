@@ -1,3 +1,18 @@
+:root {
+    --bs-body-bg: #f2f3f5;
+}
+
+.headroom {
+    will-change: transform;
+    transition: transform 200ms linear;
+}
+.headroom--pinned {
+    transform: translateY(0%);
+}
+.headroom--unpinned {
+    transform: translateY(-100%);
+}
+
 .alert ul {
     margin-bottom: 0;
     padding-left: 0;
@@ -19,5 +34,9 @@
 @media (min-width: 768px) {
     .border-md-top-0 {
         border-top: 0 !important;
+    }
+
+    .rounded-md-2 {
+        border-radius: var(--bs-border-radius)!important;
     }
 }

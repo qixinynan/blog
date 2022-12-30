@@ -7,7 +7,7 @@ from django.urls import reverse
 from users.forms import LoginForm
 
 
-def detail_view(request, user_id):
+def user_detail_view(request, user_id):
     try:
         user = User.objects.get(pk=user_id)
         return render(request, "users/detail.html", {'user': user})
