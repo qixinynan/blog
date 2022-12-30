@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}<title>{{ post.title }} - 夕泥博客</title>{% endblock %}
+{% block meta %}
+    <meta name="keywords" content={{ post.keywords }}>
+    <meta name="description" content={{ post.description }}>
+{% endblock %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/post_detail.css' %}">
+{% endblock %}
+{% block container-style %}px-0{% endblock %}
+{% block content %}
+    <div class="d-flex">
+        <div class="content card border-0 card-body mx-md-1 rounded-0 rounded-md-2">
+            <h1 class="h2">{{ post.title }}</h1>
+            <div class="mt-4">
+                {{ post.content|safe }}
+            </div>
+        </div>
+        <div class="d-none d-md-block flex-grow-1 mx-1">
+            <div class="card card-body border-0 ">
+                <p>作者：Qixiny</p>
+                <p>阅读量：3000</p>
+                <p>喜欢的作者：5000</p>
+                <button class="btn btn-success">关注</button>
+            </div>
+        </div>
+    </div>
+{% endblock %}

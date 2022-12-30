@@ -8,9 +8,9 @@
     <link rel="stylesheet" href="{% static 'css/login.css' %}">
 {% endblock %}
 {% block content %}
-    <div class="login-form mx-auto my-5">
-        <h1 class="h4 text-center">登录到夕泥</h1>
-        <form method="post" action="{% url 'users:login' %}">
+    <div class="login-form mx-auto my-5 py-5">
+        <h1 class="h4 text-center mb-4">登录到夕泥</h1>
+        <form class="card card-body border-0" method="post" action="{% url 'users:login' %}">
             {% csrf_token %}
             {{ form |crispy }}
             <input type="hidden" name="next" value="{{ request.GET.next|default:'/' }}" />
