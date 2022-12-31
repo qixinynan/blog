@@ -1,3 +1,7 @@
 .content {
     max-width: 820px;
 }
+
+.container {
+    max-width: 1140px;
+}

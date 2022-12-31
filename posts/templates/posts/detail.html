@@ -7,21 +7,28 @@
 {% endblock %}
 {% block css %}
     <link rel="stylesheet" href="{% static 'css/post_detail.css' %}">
+    <link rel="stylesheet" href="{% static 'css/code.css' %}">
 {% endblock %}
 {% block container-style %}px-0{% endblock %}
+{% load admin_list %}
 {% block content %}
     <div class="d-flex">
         <div class="content card border-0 card-body mx-md-1 rounded-0 rounded-md-2">
-            <h1 class="h2">{{ post.title }}</h1>
+            <div class="border-bottom py-2 fs-note">
+                <h1 class="h2">{{ post.title }}</h1>
+                <div class="text-secondary">
+                    <span>发布于 {{ post.publish_date }}</span>
+                    <span class="ms-3">阅读 {{ post.views }}</span>
+                </div>
+            </div>
             <div class="mt-4">
-                {{ post.content|safe }}
+                {{ body|safe }}
             </div>
         </div>
         <div class="d-none d-md-block flex-grow-1 mx-1">
             <div class="card card-body border-0 ">
-                <p>作者：Qixiny</p>
-                <p>阅读量：3000</p>
-                <p>喜欢的作者：5000</p>
+                <p>作者：{{ post.author.username }}</p>
+                <p>阅读量：{{ post.views }}</p>
                 <button class="btn btn-success">关注</button>
             </div>
         </div>

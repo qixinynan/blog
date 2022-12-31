@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'posts',
     'crispy_forms',
     'crispy_bootstrap5',
-    'ckeditor'
+    'mdeditor',
+    'markdown'
 ]
 
 MIDDLEWARE = [
@@ -80,11 +81,15 @@ WSGI_APPLICATION = 'blog.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
+        'CHARSET': 'utf8mb4',
         'NAME': 'blog',
-        'HOST': 'localhost',
+        'HOST': 'db',
         'PORT': 3306,
-        'USER': 'blog',
-        'PASSWORD': 'Bcyh#@2006'
+        'USER': 'root',
+        'PASSWORD': 'Bcyh#@2006',
+        'OPTIONS': {
+            'charset': 'utf8mb4'
+        },
     }
 }
 
@@ -130,3 +135,21 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
+
+# ckeditor
+CKEDITOR_CONFIGS = {
+    'default': {
+        'language': 'zh-cn',
+        'image_previewText': ' ',
+        'toolbar': 'Custom',
+        # 添加按钮在这里
+        'toolbar_Custom': [
+            ['Bold', 'Italic', 'Underline', 'Format', 'RemoveFormat'],
+            ['NumberedList', 'BulletedList'],
+            ['Blockquote', 'CodeSnippet'],
+            ['Image', 'Link', 'Unlink'],
+            ['Maximize']
+        ],
+        'extraPlugins': ','.join(['codesnippet', 'uploadimage', 'widget', 'lineutils', ]),
+    }
+}
