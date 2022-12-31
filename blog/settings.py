@@ -40,8 +40,7 @@ INSTALLED_APPS = [
     'posts',
     'crispy_forms',
     'crispy_bootstrap5',
-    'mdeditor',
-    'markdown'
+    'tinymce'
 ]
 
 MIDDLEWARE = [
