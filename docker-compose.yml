@@ -1,0 +1,38 @@
+version: "3"
+services:
+  app:
+    # For Debug
+    stdin_open: true
+    tty: true
+    restart: always
+    build: .
+    command: sh -c "python3 manage.py makemigrations && python3 manage.py migrate && python3 manage.py runserver 0.0.0.0:8000"
+    networks:
+      - db_network
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+    ports:
+      - "8000:8000"
+
+  db:
+    image: mysql:5.7
+    restart: always
+    volumes:
+      - dbdata:/var/lib/mysql
+      - ./config/my.cnf:/etc/mysql/my.cnf
+    networks:
+      - db_network
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=***REMOVED***
+      - MYSQL_DATABASE=blog
+      - MYSQL_CHARACTER_SET_SERVER=utf8mb4
+      - MYSQL_COLLATION_SERVER=utf8mb4_unicode_ci
+networks:
+  db_network:
+    driver: bridge
+volumes:
+  dbdata:
