@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title %}<title>夕泥博客 - IT技术的交流地</title>{% endblock %}
+{% block title %}<title>{{ query }} - 搜索 夕泥博客</title>{% endblock %}
 {% block meta %}
     <meta name="keywords" content="夕泥, 夕泥博客, 博客, IT技术"/>
     <meta name="description" content="夕泥博客是夕泥网的博客平台，致力于公平的分享"/>
@@ -10,7 +10,7 @@
             <div class="mb-3">
                 <form role="search" action="{% url 'posts:search' %}">
                     <label class="w-100 d-flex">
-                        <input class="form-control form-control-sm" name="query" type="search" placeholder="在所有博客中搜索">
+                        <input class="form-control form-control-sm" name="query" value="{{ query }}" type="search" placeholder="在所有博客中搜索">
                         <input type="submit" class="btn btn-success ms-1 px-4" value="搜索">
                     </label>
                 </form>

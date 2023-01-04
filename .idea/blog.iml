@@ -22,6 +22,9 @@
     <orderEntry type="library" name="popper" level="application" />
     <orderEntry type="library" name="bootstrap.bundle" level="application" />
     <orderEntry type="library" name="jquery" level="application" />
+    <orderEntry type="library" name="prism" level="application" />
+    <orderEntry type="library" name="prism-twilight" level="application" />
+    <orderEntry type="library" name="toastify" level="application" />
   </component>
   <component name="PackageRequirementsSettings">
     <option name="versionSpecifier" value="Strong equality (==x.y.z)" />

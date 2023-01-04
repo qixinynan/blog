@@ -1,25 +1,30 @@
 {% extends "base.html" %}
+{% load post_extras %}
 {% block content %}
-    <p>Hello world</p>
-    <p>Hello world</p>
-    <p>Hello world</p>
-    <p>Hello world</p>
-    <p>Hello world</p>
-    <p>Hello world</p>
-    <p>Hello world</p>
-    <p>Hello world</p>
-    <p>Hello world</p>
-    <p>Hello world</p>
-    <p>Hello world</p>
-    <p>Hello world</p>
-    <p>Hello world</p>
-    <p>Hello world</p>
-    <p>Hello world</p>
-    <p>Hello world</p>
-    <p>Hello world</p>
-    <p>Hello world</p>
-    <p>Hello world</p>
-    <p>Hello world</p>
-    <p>Hello world</p>
-    <p>Hello world</p>
+    <div class="d-flex">
+        <div class="max-width">
+            <div>
+                <div class="card card-body border-0">
+                    <h3 class="m-0">夕泥博客</h3>
+                </div>
+                <div class="d-flex mt-2">
+                    <div class="card card-body border-0">
+                        <h5>网站数据</h5>
+                        <div class="text-secondary fs-desc">
+                            <p class="m-0">博客数量：{% get_posts_count %}</p>
+                            <p class="m-0">博客总浏览量：{% get_posts_views %}</p>
+                        </div>
+                    </div>
+                    <div class="ms-2 card card-body border-0"></div>
+                </div>
+                {% get_latest_post as posts %}
+                {% for post in posts %}
+                    {% include "posts/card.html" with post=post %}
+                {% endfor %}
+            </div>
+        </div>
+        <div class="d-none d-md-block flex-grow-1 ms-3">
+            {% include "posts/aside.html" %}
+        </div>
+    </div>
 {% endblock %}

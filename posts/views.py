@@ -1,5 +1,6 @@
-import markdown
-from django.shortcuts import render, get_object_or_404
+from django.db.models import Q
+from django.shortcuts import render, get_object_or_404, redirect
+from django.urls import reverse
 
 from posts.models import Post
 
@@ -8,26 +9,35 @@ def index_view(request):
     return render(request, 'posts/index.html', {'posts': Post.objects.all()})
 
 
+def search_view(request):
+    if 'query' not in request.GET:
+        return redirect(reverse('posts:index'))
+
+    query = request.GET.get('query')
+    keywords = query.split()
+    posts = Post.objects.all()
+
+    for keyword in keywords:
+        posts = posts.filter(
+            Q(title__icontains=keyword) |
+            Q(description__icontains=keyword) |
+            Q(keywords__icontains=keyword))
+
+    return render(request, 'posts/search.html', {'posts': posts, 'query': query})
+
+
 def post_detail_view(request, post_id):
     post = get_object_or_404(Post, id=post_id)
-    # TODO 缓存
-    md = markdown.Markdown(extensions=[
-        'markdown.extensions.extra',
-        'markdown.extensions.codehilite',
-        'markdown.extensions.toc',
-    ])
-    body = md.convert(post.content)
-    response = render(request, 'posts/detail.html', {'post': post, 'body': body})
-    if 'viewed' not in request.COOKIES:
-        response.set_cookie('viewed', f'{post_id}', max_age=60 * 60 * 24 * 365)
+    if 'viewed' not in request.session:
+        request.session['viewed'] = f'{post_id}'
         post.views += 1
         post.save()
     else:
-        viewed = request.COOKIES['viewed'].split(',')
+        viewed = request.session['viewed'].split(',')
         if str(post_id) not in viewed:
             viewed.append(str(post_id))
-            response.set_cookie('viewed', ','.join(viewed), max_age=60 * 60 * 24 * 365)
+            request.session['viewed'] = ','.join(viewed)
             post.views += 1
             post.save()
-
-    return response
+    print(f'viewed session: {request.session["viewed"]}')
+    return render(request, 'posts/detail.html', {'post': post})

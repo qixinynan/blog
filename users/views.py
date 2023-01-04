@@ -9,7 +9,7 @@ from users.forms import LoginForm
 
 def user_detail_view(request, user_id):
     try:
-        user = User.objects.get(pk=user_id)
+        user = User.objects.get(id=user_id)
         return render(request, "users/detail.html", {'user': user})
     except User.DoesNotExist:
         raise Http404('找不到用户')

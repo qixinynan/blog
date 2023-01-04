@@ -1,0 +1,21 @@
+{% load post_extras %}
+<div class="card card-body border-0 mb-2">
+    <span class="border-bottom pb-2">博客排行榜</span>
+    {% get_most_views_post as most_posts %}
+    {% for post in most_posts %}
+        <a class="mt-2 link" href="{% url 'posts:detail' post.id %}">
+            <div>{{post.title}}</div>
+            <div class="text-secondary fs-note">阅读 {{post.views}}</div>
+        </a>
+    {% endfor %}
+</div>
+<div class="card card-body border-0"> {# 最后一个不mb #}
+    <span class="border-bottom pb-2">最新博客</span>
+    {% get_most_views_post as latest_posts %}
+    {% for post in latest_posts %}
+        <a class="mt-2 link" href="{% url 'posts:detail' post.id %}">
+            <div>{{post.title}}</div>
+            <div class="text-secondary fs-note">{{post.publish_date}}</div>
+        </a>
+    {% endfor %}
+</div>

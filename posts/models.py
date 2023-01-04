@@ -1,6 +1,12 @@
 from django.contrib.auth.models import User
 from django.db import models
+from django.db.models import Sum
 from tinymce.models import HTMLField
+
+
+class PostManager(models.Manager):
+    def total_views(self):
+        return self.aggregate(total_views=Sum('views'))['total_views']
 
 
 class Post(models.Model):
@@ -11,6 +17,8 @@ class Post(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='作者')
     views = models.PositiveIntegerField(default=0, verbose_name='阅读量')
     publish_date = models.DateTimeField(auto_now_add=True, verbose_name='发布日期')
+
+    objects = PostManager()
 
     class Meta:
         verbose_name = '文章'

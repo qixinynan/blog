@@ -6,31 +6,36 @@
     <meta name="description" content={{ post.description }}>
 {% endblock %}
 {% block css %}
-    <link rel="stylesheet" href="{% static 'css/post_detail.css' %}">
-    <link rel="stylesheet" href="{% static 'css/code.css' %}">
+    <link rel="stylesheet" href="{% static 'css/prism.css' %}">
+{% endblock %}
+{% block js %}
+    <script src="{% static 'js/prism.js' %}"></script>
 {% endblock %}
 {% block container-style %}px-0{% endblock %}
 {% load admin_list %}
 {% block content %}
     <div class="d-flex">
-        <div class="content card border-0 card-body mx-md-1 rounded-0 rounded-md-2">
+        <div class="max-width card border-0 card-body mx-md-1 rounded-0 rounded-md-2 align-self-start">
             <div class="border-bottom py-2 fs-note">
                 <h1 class="h2">{{ post.title }}</h1>
                 <div class="text-secondary">
-                    <span>发布于 {{ post.publish_date }}</span>
-                    <span class="ms-3">阅读 {{ post.views }}</span>
+                    <a class="link" href="{% url 'users:detail' post.author.id %}">{{ post.author.username }}</a>
+                    <span class="ms-2">发布于 {{ post.publish_date }}</span>
+                    <span class="ms-2">阅读 {{ post.views }}</span>
                 </div>
             </div>
             <div class="mt-4">
-                {{ body|safe }}
+                {{ post.content|safe }}
             </div>
         </div>
-        <div class="d-none d-md-block flex-grow-1 mx-1">
-            <div class="card card-body border-0 ">
-                <p>作者：{{ post.author.username }}</p>
-                <p>阅读量：{{ post.views }}</p>
-                <button class="btn btn-success">关注</button>
+        <div class="d-none d-md-block flex-1 mx-1">
+            <div class="card card-body border-0 mb-2">
+                <a class="fs-5 link mb-2" role="button" href="{% url 'users:detail' post.author.id %}">{{ post.author.username }}</a>
+                <p class="text-secondary fs-note">{{ post.author.profile.description }}</p>
+                {# TODO 关注功能 #}
+                <button class="btn btn-success" onclick="Toastify({text: '可悲！网站还没有关注的功能～'}).showToast()">关注</button>
             </div>
+            {% include "posts/aside.html" %}
         </div>
     </div>
 {% endblock %}
