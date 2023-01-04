@@ -95,6 +95,7 @@ DATABASES = {
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
 
+AUTH_PROFILE_MODULE = 'users.Profile'
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -135,20 +136,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 
-# ckeditor
-CKEDITOR_CONFIGS = {
-    'default': {
-        'language': 'zh-cn',
-        'image_previewText': ' ',
-        'toolbar': 'Custom',
-        # 添加按钮在这里
-        'toolbar_Custom': [
-            ['Bold', 'Italic', 'Underline', 'Format', 'RemoveFormat'],
-            ['NumberedList', 'BulletedList'],
-            ['Blockquote', 'CodeSnippet'],
-            ['Image', 'Link', 'Unlink'],
-            ['Maximize']
-        ],
-        'extraPlugins': ','.join(['codesnippet', 'uploadimage', 'widget', 'lineutils', ]),
-    }
+TINYMCE_DEFAULT_CONFIG = {
+    'plugins': 'codesample',
+    'toolbar': 'codesample',
+    'codesample_content_css': "http://ourcodeworld.com/material/css/prism.css"
 }

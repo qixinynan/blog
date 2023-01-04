@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 {% load static %}
+
 <html lang="zh-CN">
 <head>
     {% block title %}
@@ -20,17 +21,20 @@
     <meta name="google-site-verification" content="gpXH5Aw-1dy2I5NHeRnNFS_P-PSA_d5TOJHn5bBPvSI"/>
 
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/5.2.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/toastify-js/1.12.0/toastify.min.css">
     <link rel="stylesheet" href="{% static 'css/global.css' %}">
     {% block css %}{% endblock %}
 
     <script src="https://cdn.staticfile.org/twitter-bootstrap/5.2.3/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.staticfile.org/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/toastify-js/1.12.0/toastify.min.js"></script> {# toast #}
     <script src="{% static 'js/headroom.js' %}"></script>
 </head>
 <body>
-{% include "header.html" %}
-<div class="container mt-3 {% block container-style %}{% endblock %}">
-    {% block content %}{% endblock %}
-</div>
+    {% include "header.html" %}
+    <div class="container max-width-2 mt-3 {% block container-style %}{% endblock %}">
+        {% block content %}{% endblock %}
+    </div>
+    {% block js %}{% endblock %}
 </body>
 </html>

@@ -19,6 +19,15 @@
     font-size: 0.75rem;
 }
 
+.fs-desc {
+    font-size: 0.875rem;
+}
+
+.link {
+    text-decoration: none;
+    color: #252933;
+}
+
 .alert ul {
     margin-bottom: 0;
     padding-left: 0;
@@ -45,4 +54,23 @@
     .rounded-md-2 {
         border-radius: var(--bs-border-radius)!important;
     }
+}
+
+.max-width {
+    max-width: 820px;
+    flex: 1 1 820px !important;
+}
+
+.flex-1 {
+    flex: 1;
+}
+
+.max-width-1 {
+    max-width: 820px;
+    flex: 1 1 820px !important;
+}
+
+.max-width-2 {
+     max-width: 1140px;
+    flex: 1 1 1140px !important;
 }

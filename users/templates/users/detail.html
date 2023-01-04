@@ -1,5 +1,22 @@
 {% extends "base.html" %}
+{% load post_extras %}
+{% block title %}<title>{{ user.username }}的个人主页 - 夕泥</title>{% endblock %}
+{% block meta %}
+    <meta name="keywords" content="{{ user.username }}, {{ user.username }}的个人主页, 个人主页, 夕泥"/>
+    <meta name="description" content="{{ user.profile.description }}"/>
+{% endblock %}
 {% block content %}
-    你好，{{ user.username }} <a class="link-primary" href="{% url 'users:logout' %}">退出登录</a>
-    <p>很明显，此页面还没有完成。</p>
+    <div class="max-width mx-auto">
+        <div class="card card-body border-0 ">
+            <h1>{{ user.username }}</h1>
+            <p class="text-secondary">{{ user.profile.description }}</p>
+        </div>
+        <div>
+            <h6 class="mt-3">{% if request.user.id == user.id %}我{% else %}TA{% endif %}的文章</h6>
+            {% get_posts_by_user user as posts %}
+            {% for post in posts %}
+                {% include "posts/card.html" with post=post %}
+            {% endfor%}
+        </div>
+    </div>
 {% endblock %}

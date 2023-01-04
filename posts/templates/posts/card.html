@@ -1,0 +1,8 @@
+<a class="card card-body border-0 my-2 link" href="{% url 'posts:detail' post.id %}">
+    <h5 class="card-title text-dark">{{ post.title }}</h5>
+    <span class="text-dark fs-note mb-2">{{ post.description }}</span>
+    <div class="fs-note text-secondary d-flex justify-content-between">
+        <span>阅读量 {{ post.views }}</span>
+        <span class="ms-2">{{ post.publish_date }}</span>
+    </div>
+</a>
