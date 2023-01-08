@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}错误：{{ code }} - 夕泥{% endblock %}
+{% block content %}
+    <div class="text-center mt-5">
+        <h1 class="fw-bolder">{{ code }}</h1>
+        <h6 class="my-3 text-secondary">{{ msg }}</h6>
+        {% if exception %}
+            <p class="fs-note text-secondary">此外响应还携带了信息：{{ exception }}</p>
+        {% endif %}
+        <div class="d-flex justify-content-center">
+            <a class="text-decoration-none" href="{% url 'index' %}">回到首页</a>
+            <a class="text-decoration-none ms-4" href="mailto:3185835784@qq.com">联系管理员</a>
+        </div>
+    </div>
+{% endblock %}
+{% block footer %}{% endblock %}
+

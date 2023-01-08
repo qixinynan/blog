@@ -15,7 +15,11 @@
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/venv" />
+      <excludeFolder url="file://$MODULE_DIR$/static" />
     </content>
+    <content url="file://$MODULE_DIR$/static/css" />
+    <content url="file://$MODULE_DIR$/static/img" />
+    <content url="file://$MODULE_DIR$/static/js" />
     <orderEntry type="jdk" jdkName="Python 3.9 (blog) (2)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="bootstrap" level="application" />
@@ -25,6 +29,10 @@
     <orderEntry type="library" name="prism" level="application" />
     <orderEntry type="library" name="prism-twilight" level="application" />
     <orderEntry type="library" name="toastify" level="application" />
+    <orderEntry type="library" name="tagify" level="application" />
+    <orderEntry type="library" name="highlight" level="application" />
+    <orderEntry type="library" name="default" level="application" />
+    <orderEntry type="library" name="monokai" level="application" />
   </component>
   <component name="PackageRequirementsSettings">
     <option name="versionSpecifier" value="Strong equality (==x.y.z)" />

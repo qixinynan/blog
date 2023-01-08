@@ -1,10 +1,8 @@
 {% extends "base.html" %}
 {% load post_extras %}
-{% block title %}<title>{{ user.username }}的个人主页 - 夕泥</title>{% endblock %}
-{% block meta %}
-    <meta name="keywords" content="{{ user.username }}, {{ user.username }}的个人主页, 个人主页, 夕泥"/>
-    <meta name="description" content="{{ user.profile.description }}"/>
-{% endblock %}
+{% block title %}{{ user.username }}的个人主页 - 夕泥{% endblock %}
+{% block keywords %}{{ user.username }}, {{ user.username }}的个人主页,个人主页,夕泥,夕泥博客{% endblock %}
+{% block description %}{{ user.profile.description }}{% endblock %}
 {% block content %}
     <div class="max-width mx-auto">
         <div class="card card-body border-0 ">

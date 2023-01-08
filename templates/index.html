@@ -1,5 +1,7 @@
+{# TODO: 删除密钥的git记录 #}
 {% extends "base.html" %}
 {% load post_extras %}
+{% block container-style %}px-0{% endblock %}
 {% block content %}
     <div class="d-flex">
         <div class="max-width">
@@ -7,15 +9,19 @@
                 <div class="card card-body border-0">
                     <h3 class="m-0">夕泥博客</h3>
                 </div>
-                <div class="d-flex mt-2">
-                    <div class="card card-body border-0">
+                <div class="row mt-2 mx-0">
+                    <div class="card card-body border-0 col-md-1">
                         <h5>网站数据</h5>
                         <div class="text-secondary fs-desc">
                             <p class="m-0">博客数量：{% get_posts_count %}</p>
                             <p class="m-0">博客总浏览量：{% get_posts_views %}</p>
                         </div>
                     </div>
-                    <div class="ms-2 card card-body border-0"></div>
+                    <div class="card card-body align-items-start border-0 col-md-1 ms-md-2 mt-2 mt-md-0">
+                        <h5>此网站已在Github上开源！</h5>
+                        <a target="_blank" href="https://github.com/Qixinies/blog"><img class="mt-1" src="https://img.shields.io/github/stars/Qixinies/blog?style=social" alt="项目star数"></a>
+                        <a target="_blank" href="https://github.com/Qixinies"><img class="mt-1" src="https://img.shields.io/github/followers/Qixinies?style=social" alt="作者关注数"></a>
+                    </div>
                 </div>
                 {% get_latest_post as posts %}
                 {% for post in posts %}
@@ -24,6 +30,7 @@
             </div>
         </div>
         <div class="d-none d-md-block flex-grow-1 ms-3">
+            <a href="{% url 'posts:post' %}" class="btn btn-success w-100 mb-2">新博客</a>
             {% include "posts/aside.html" %}
         </div>
     </div>

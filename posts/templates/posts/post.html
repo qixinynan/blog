@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_filters %}
+{% block title %}发布博客 - 夕泥博客{% endblock %}
+{% block keywords %}夕泥,投稿,博客,夕泥博客,发布,发布文章{% endblock %}
+{% block description %}{% endblock %}
+{% block css %}<link rel="stylesheet" href="https://cdn.staticfile.org/tagify/4.17.6/tagify.min.css">{% endblock %}
+{% block js %}
+    <script src="https://cdn.staticfile.org/tagify/4.17.6/tagify.min.js"></script>
+    <script>
+        const input = document.querySelector('input[name=keywords]');
+        new Tagify(input, {
+            originalInputValueFormat: valuesArr => valuesArr.map(item => item.value).join(',')
+        })
+    </script>
+{% endblock %}
+{% block content %}
+    <form class="card card-body border-0" method="post" action="{% url 'posts:post' %}">
+        {% csrf_token %}
+        {{ form.title |as_crispy_field }}
+        {{ form.media }}
+        {{ form.content }}
+        {{ form.description |as_crispy_field }}
+        {{ form.keywords |as_crispy_field }}
+        <input type="hidden" name="next" value="{{ request.GET.next|default:'/' }}" />
+        <input type="submit" value="发布" class="btn btn-success w-100 mt-2" />
+    </form>
+{% endblock %}

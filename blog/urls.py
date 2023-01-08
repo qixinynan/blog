@@ -13,14 +13,31 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-
+from django.conf.urls import static
 from django.contrib import admin
+from django.contrib.sitemaps.views import sitemap
+from django.template.defaulttags import url
 from django.urls import path, include
-from . import views
+from . import views, settings
+from .sitemaps import PostSitemap, StaticViewSitemap, UserSitemap
+sitemaps = {
+    'posts': PostSitemap,
+    'users': UserSitemap,
+    'static': StaticViewSitemap,
+}
 
 urlpatterns = [
     path('', views.index_view, name='index'),
     path('admin/', admin.site.urls),
     path('users/', include(('users.urls', 'users'), namespace='users')),
-    path('posts/', include(('posts.urls', 'posts'), namespace='posts'))
+    path('posts/', include(('posts.urls', 'posts'), namespace='posts')),
+
+    path('ckeditor/', include('ckeditor_uploader.urls')),
+    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
 ]
+urlpatterns += static.static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+handler400 = views.bad_request
+handler403 = views.permission_denied
+handler404 = views.page_not_found
+handler500 = views.error

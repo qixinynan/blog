@@ -1,5 +1,4 @@
-{# TODO login and logout's next page #}
-<div class="navbar-fixed-container">
+<header class="navbar-fixed-container">
     <nav class="navbar bg-dark navbar-dark navbar-expand-md fixed-top">
       <div class="container-fluid">
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#header-navbar" aria-controls="header-navbar" aria-expanded="false" style="border: none">
@@ -10,10 +9,9 @@
             <a class="navbar-brand mb-0 mx-md-4" href="/">夕泥 Xinies</a>
         </div>
         <div class="collapse navbar-collapse" id="header-navbar">
-            <div class="navbar-nav me-auto">
+            <nav class="navbar-nav me-auto">
                 <a class="nav-link mx-2 border-top border-md-top-0 border-white-fade" href="/">首页</a>
                 <a class="nav-link mx-2 border-top border-md-top-0 border-white-fade" href="{% url 'posts:index' %}">博客</a>
-                <a class="nav-link mx-2 border-top border-md-top-0 border-white-fade" href="#">关于</a>
                 <!-- Mobile Only -->
                 <a class="nav-link d-md-none mx-2 border-top border-md-top-0 border-white-fade" href="{% url 'posts:search' %}">搜索</a>
                 {% if request.user.is_authenticated %}
@@ -21,7 +19,7 @@
                 {% else %}
                     <a class="nav-link d-md-none mx-2 border-top border-md-top-0 border-white-fade" href="{% url 'users:login' %}">登录</a>
                 {% endif %}
-            </div>
+            </nav>
             <!-- PC Only -->
             <div class="d-none d-md-flex navbar-nav">
                 <form class="d-flex align-items-center mt-1 mx-md-2 mt-md-0" role="search" action="{% url 'posts:search' %}">
@@ -32,16 +30,17 @@
                 {% if request.user.is_authenticated %}
                 <div class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle ms-2 me-md-4" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{ request.user.username }}</a>
-                    <ul class="dropdown-menu dropdown-menu-end">
-                        <li><a class="dropdown-item" href="{% url 'users:detail' request.user.id %}">个人主页</a></li>
-                        <li><a class="dropdown-item" href="#">设置</a></li>
+                    <nav class="dropdown-menu dropdown-menu-end">
+                        <a class="dropdown-item" href="{% url 'users:detail' request.user.id %}">我的主页</a>
+                        <a class="dropdown-item" href="{% url 'posts:post' %}">发布博客</a>
+                        <a class="dropdown-item" href="#">设置</a>
                         {% if request.user.is_staff %}
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="{% url 'admin:index' %}" target="_blank">Django管理</a></li>
+                            <hr class="dropdown-divider">
+                            <a class="dropdown-item" href="{% url 'admin:index' %}" target="_blank">Django管理</a>
                         {% endif %}
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="{% url 'users:logout' %}">退出登录</a></li>
-                    </ul>
+                        <hr class="dropdown-divider">
+                        <a class="dropdown-item" href="{% url 'users:logout' %}">退出登录</a>
+                    </nav>
                 </div>
                 {% else %}
                     <a class="nav-link ms-2 me-md-4" href="{% url 'users:login' %}">登录</a>
@@ -50,4 +49,4 @@
         </div>
       </div>
     </nav>
-</div>
+</header>
