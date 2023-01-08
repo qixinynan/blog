@@ -1,34 +1,46 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %}<title>{{ post.title }} - 夕泥博客</title>{% endblock %}
-{% block meta %}
-    <meta name="keywords" content={{ post.keywords }}>
-    <meta name="description" content={{ post.description }}>
-{% endblock %}
+{% block title %}{{ post.title }} - 夕泥博客{% endblock %}
+
+{% block keywords %}{{ post.keywords }}{% endblock %}
+{% block description %}{{ post.description }}{% endblock %}
+{% block author %}{{ post.author.username }}{% endblock %}
 {% block css %}
-    <link rel="stylesheet" href="{% static 'css/prism.css' %}">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/11.7.0/styles/base16/monokai.min.css">
 {% endblock %}
 {% block js %}
-    <script src="{% static 'js/prism.js' %}"></script>
+    <script src="https://cdn.staticfile.org/highlight.js/11.7.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
 {% endblock %}
 {% block container-style %}px-0{% endblock %}
 {% load admin_list %}
 {% block content %}
     <div class="d-flex">
-        <div class="max-width card border-0 card-body mx-md-1 rounded-0 rounded-md-2 align-self-start">
-            <div class="border-bottom py-2 fs-note">
-                <h1 class="h2">{{ post.title }}</h1>
-                <div class="text-secondary">
-                    <a class="link" href="{% url 'users:detail' post.author.id %}">{{ post.author.username }}</a>
-                    <span class="ms-2">发布于 {{ post.publish_date }}</span>
-                    <span class="ms-2">阅读 {{ post.views }}</span>
+        <div class="max-width w-100">
+            <article class="card border-0 card-body mx-md-1 rounded-0 rounded-md-2 align-self-start">
+                <div class="border-bottom py-2 fs-note">
+                    <h1 class="h2">{{ post.title }}</h1>
+                    <div class="text-secondary">
+                        <a class="link" href="{% url 'users:detail' post.author.id %}">{{ post.author.username }}</a>
+                        <span class="ms-2">发布于 {{ post.publish_date }}</span>
+                        <span class="ms-2">阅读 {{ post.views }}</span>
+                    </div>
                 </div>
-            </div>
-            <div class="mt-4">
-                {{ post.content|safe }}
+                <div class="mt-4 overflow-hidden">
+                    {{ post.content|safe }}
+                </div>
+            </article>
+            <div class="my-2 card border-0 card-body mx-md-1 rounded-0 rounded-md-2 align-self-start">
+                <h5 class="py-2">相关推荐</h5>
+                {% for related_post in related_posts %}
+                    <a class="border-top py-2 link" href="{% url 'posts:detail' related_post.id %}">
+                        <h6 class="">{{ related_post.title }}</h6>
+                        <span class="fs-desc text-secondary">{{ related_post.description }}</span>
+                    </a>
+                {% endfor %}
             </div>
         </div>
-        <div class="d-none d-md-block flex-1 mx-1">
+        <aside class="d-none d-md-block flex-1 mx-1">
             <div class="card card-body border-0 mb-2">
                 <a class="fs-5 link mb-2" role="button" href="{% url 'users:detail' post.author.id %}">{{ post.author.username }}</a>
                 <p class="text-secondary fs-note">{{ post.author.profile.description }}</p>
@@ -36,6 +48,6 @@
                 <button class="btn btn-success" onclick="Toastify({text: '可悲！网站还没有关注的功能～'}).showToast()">关注</button>
             </div>
             {% include "posts/aside.html" %}
-        </div>
+        </aside>
     </div>
 {% endblock %}
