@@ -1,5 +1,6 @@
 :root {
     --bs-body-bg: #f2f3f5;
+    --bs-link-color: #0969da;
 }
 
 .headroom {
@@ -26,6 +27,10 @@
 .link {
     text-decoration: none;
     color: #252933;
+}
+
+.flex-0 {
+    flex: 0 !important;
 }
 
 .alert ul {
@@ -72,5 +77,5 @@
 
 .max-width-2 {
      max-width: 1140px;
-    flex: 1 1 1140px !important;
+    flex: 1 1 1140px;
 }

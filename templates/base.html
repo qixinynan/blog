@@ -3,22 +3,22 @@
 
 <html lang="zh-CN">
 <head>
-    {% block title %}
-        <title>夕泥 - 七夕泥的博客</title>
-    {% endblock %}
-
-    <meta name="author" content="七夕泥"/>
+    <title>{% block title %}夕泥 - 七夕泥的博客{% endblock %}</title>
+    <meta name="author" content="{% block author %}七夕泥{% endblock %}"/>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% block meta %}
-        <meta name="keywords" content="夕泥, Unity, 资源, 编程, 博客, 七夕泥"/>
-        <meta name="description" content="夕泥 - 七夕泥的博客，一个关于分享的地方"/>
-    {% endblock %}
+    <meta name="keywords" content="{% block keywords %}夕泥,夕泥博客,编程,博客,七夕泥{% endblock %}"/>
+    <meta name="description" content="{% block description %}夕泥 - 七夕泥的博客，一个关于分享的地方{% endblock %}"/>
 
     <!-- TODO baidu and google's verification -->
     <meta name="baidu-site-verification" content="2HhDg1sekr"/>
     <meta name="google-site-verification" content="gpXH5Aw-1dy2I5NHeRnNFS_P-PSA_d5TOJHn5bBPvSI"/>
+
+    {# TODO: 更新更好看的图标 #}
+    <link rel="shortcut icon" href="{% static 'img/favicon-64x64.ico' %}" type="image/x-icon"/>
+    <link rel="icon" type="image/png" sizes="64x64" href={% static 'img/favicon-64x64.ico' %}>
+    <link rel="apple-touch-icon" href="{% static 'img/icon.png' %}"/>
 
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/5.2.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.staticfile.org/toastify-js/1.12.0/toastify.min.css">
@@ -29,12 +29,16 @@
     <script src="https://cdn.staticfile.org/jquery/3.6.3/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/toastify-js/1.12.0/toastify.min.js"></script> {# toast #}
     <script src="{% static 'js/headroom.js' %}"></script>
+    {% block head %}{% endblock %}
 </head>
 <body>
     {% include "header.html" %}
-    <div class="container max-width-2 mt-3 {% block container-style %}{% endblock %}">
+    <main class="container max-width-2 mt-3 {% block container-style %}{% endblock %}">
         {% block content %}{% endblock %}
-    </div>
+    </main>
+    {% block footer %}
+        {% include "footer.html" %}
+    {% endblock %}
     {% block js %}{% endblock %}
 </body>
 </html>
