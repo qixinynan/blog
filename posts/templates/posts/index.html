@@ -1,9 +1,7 @@
 {% extends 'base.html' %}
-{% block title %}<title>夕泥博客 - IT技术的交流地</title>{% endblock %}
-{% block meta %}
-    <meta name="keywords" content="夕泥, 夕泥博客, 博客, IT技术"/>
-    <meta name="description" content="夕泥博客是夕泥网的博客平台，致力于公平的分享"/>
-{% endblock %}
+{% block title %}夕泥博客 - IT技术的交流地{% endblock %}
+{% block keywords %}夕泥,夕泥博客,博客,IT技术{% endblock %}
+{% block description %}夕泥博客是夕泥网的博客平台，致力于公平的分享{% endblock %}
 {% block content %}
     <div class="d-flex">
         <div class="max-width">
@@ -21,8 +19,9 @@
                 {% endfor %}
             </div>
         </div>
-        <div class="d-none d-md-block flex-grow-1 ms-3">
+        <aside class="d-none d-md-block flex-grow-1 ms-3">
+            <a href="{% url 'posts:post' %}" class="btn btn-success w-100 mb-2">新博客</a>
             {% include "posts/aside.html" %}
-        </div>
+        </aside>
     </div>
 {% endblock %}

@@ -9,6 +9,7 @@ class Profile(models.Model):
     description = models.TextField(verbose_name="介绍")
 
     @receiver(post_save, sender=User)
+    # TODO: fix warning
     def create_user_profile(sender, instance, created, **kwargs):
         if created:
             Profile.objects.create(user=instance)
