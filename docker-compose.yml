@@ -25,8 +25,6 @@ services:
       - ./config/my.cnf:/etc/mysql/my.cnf
     networks:
       - db_network
-    ports:
-      - "3306:3306"
     environment:
       - MYSQL_ROOT_PASSWORD=Bcyh#@2006
       - MYSQL_DATABASE=blog
@@ -45,7 +43,7 @@ services:
       - ./config/mime.types:/etc/nginx/mime.types
       - .:/app
     ports:
-      - "80:80"
+      - "8081:80"
 
 networks:
   db_network:
