@@ -1,14 +1,21 @@
+{% load static %}
 <header class="navbar-fixed-container">
-    <nav class="navbar bg-dark navbar-dark navbar-expand-md fixed-top shadow">
+    <nav class="navbar bg-white navbar-light navbar-expand-md fixed-top nav-shadow">
       <div class="container-fluid">
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#header-navbar" aria-controls="header-navbar" aria-expanded="false" style="border: none">
-          <span class="navbar-toggler-icon"></span>
-          </button>
-        <a class="navbar-brand mb-0 ms-md-5 me-md-4 d-none d-md-flex" href="/">夕泥</a>
-        {# Mobile Only  #}
-        <div class="navbar-brand d-flex p-0 d-md-none flex-grow-1 justify-content-center">
-            <a class="navbar-brand mb-0 mx-md-4" href="/">夕泥</a>
-        </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#header-navbar" aria-controls="header-navbar" aria-expanded="false" style="border: none">
+              <span class="navbar-toggler-icon"></span>
+        </button>
+        {# Navbar-PC #}
+        <a class="navbar-brand d-none d-md-flex ms-5 me-4" href="/">
+            <img src="{% static 'img/icon/icon-main.svg' %}" width="30" alt="图标">
+            <img class="ms-2" src="{% static 'img/icon/icon-text.svg' %}" width="40" alt="图标文字">
+        </a>
+        {# Navbar-Mobile  #}
+        <a class="navbar-brand d-flex d-md-none flex-grow-1 justify-content-center" href="/">
+            <img src="{% static 'img/icon/icon-main.svg' %}" width="30" alt="图标">
+            <img class="ms-2" src="{% static 'img/icon/icon-text.svg' %}" width="40" alt="图标文字">
+        </a>
+        {# End-Navbar #}
         <div class="collapse navbar-collapse" id="header-navbar">
             <nav class="navbar-nav me-auto fs-desc">
                 <a class="app-nav-link nav-link mx-2 border-top border-md-top-0 border-white-fade rounded-md-3" href="/">首页</a>
@@ -25,7 +32,7 @@
             <div class="d-none d-md-flex navbar-nav">
                 <form class="d-flex align-items-center mt-1 mx-md-2 mt-md-0" role="search" action="{% url 'posts:search' %}">
                     <label class="w-100">
-                        <input name="query" class="form-control form-control-sm bg-dark text-light" type="search" placeholder="搜索">
+                        <input name="query" class="form-control form-control-sm" type="search" placeholder="搜索">
                     </label>
                 </form>
                 {% if request.user.is_authenticated %}
