@@ -1,6 +1,24 @@
 :root {
     --bs-body-bg: #f2f3f5;
     --bs-link-color: #0969da;
+
+    --app-primary-inverse: #ffffff;
+    --app-primary: #4cab86;
+    --app-primary-hover: #48a17e;
+    --app-light-inverse: #7e8299;
+}
+
+/*定制Bootstrap*/
+.btn-primary {
+    color: var(--app-primary-inverse);
+    border-color: var(--app-primary);
+    background-color: var(--app-primary);
+}
+
+.btn.btn-primary:hover:not(.btn-active) {
+    color: var(--app-primary-inverse);
+    border-color: var(--app-primary-hover);
+    background-color: var(--app-primary-hover)!important;
 }
 
 .headroom {
@@ -14,6 +32,16 @@
 
 .headroom--unpinned {
     transform: translateY(-100%);
+}
+
+.app-nav-link {
+    --bs-nav-link-padding-y: 5px;
+    --bs-nav-link-padding-x: 5px;
+}
+
+.app-nav-link:hover {
+    background-color: #3d3d3d;
+    color: #e7e7e7;
 }
 
 .fs-note {
@@ -58,6 +86,10 @@
 
     .rounded-md-2 {
         border-radius: var(--bs-border-radius)!important;
+    }
+
+    .rounded-md-3 {
+        border-radius: 10px !important;
     }
 }
 
