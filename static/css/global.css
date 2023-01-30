@@ -79,7 +79,7 @@
 }
 
 .nav-shadow {
-    box-shadow: 0 10px 30px 0 rgba(82, 63, 105, 0.05);
+    box-shadow: 1px 7px 10px 0 rgba(82, 63, 105, 0.05);
 }
 
 @media (min-width: 768px) {
