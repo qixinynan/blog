@@ -32,7 +32,7 @@ environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 <<<<<<< HEAD
 SECRET_KEY = env("DJANGO_SECRET")
 =======
-SECRET_KEY = '***REMOVED***'
+SECRET_KEY = 'django-insecure-v@%l+kcllox8o#u#u5$n2yg^38w#!^ww@@yiyu!6uk&_373#!4'
 >>>>>>> 17a748cf651fdf040464b4754123bcd325bd496f
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -103,7 +103,7 @@ DATABASES = {
 <<<<<<< HEAD
         'PASSWORD': env('DB_PASSWORD'),
 =======
-        'PASSWORD': '***REMOVED***',
+        'PASSWORD': 'Bcyh#@2006',
 >>>>>>> 17a748cf651fdf040464b4754123bcd325bd496f
         'OPTIONS': {
             'charset': 'utf8mb4'
