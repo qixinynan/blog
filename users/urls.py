@@ -2,7 +2,7 @@ from django.urls import path
 
 from . import views
 
-# todo register
+# TODO: 注册功能
 urlpatterns = [
     path('login', views.login_view, name="login"),
     path('logout', views.logout_view, name='logout'),
