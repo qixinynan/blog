@@ -9,7 +9,7 @@
                 <form role="search" action="{% url 'posts:search' %}">
                     <label class="w-100 d-flex">
                         <input class="form-control form-control-sm" name="query" type="search" placeholder="在所有博客中搜索">
-                        <input type="submit" class="btn btn-success ms-1 px-4" value="搜索">
+                        <input type="submit" class="btn btn-primary btn-sm ms-1 px-4" value="搜索">
                     </label>
                 </form>
             </div>
@@ -20,7 +20,7 @@
             </div>
         </div>
         <aside class="d-none d-md-block flex-grow-1 ms-3">
-            <a href="{% url 'posts:post' %}" class="btn btn-success w-100 mb-2">新博客</a>
+            <a href="{% url 'posts:post' %}" class="btn btn-primary w-100 mb-2">新博客</a>
             {% include "posts/aside.html" %}
         </aside>
     </div>

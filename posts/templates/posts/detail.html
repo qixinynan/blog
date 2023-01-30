@@ -45,7 +45,7 @@
                 <a class="fs-5 link mb-2" role="button" href="{% url 'users:detail' post.author.id %}">{{ post.author.username }}</a>
                 <p class="text-secondary fs-note">{{ post.author.profile.description }}</p>
                 {# TODO 关注功能 #}
-                <button class="btn btn-success" onclick="Toastify({text: '可悲！网站还没有关注的功能～'}).showToast()">关注</button>
+                <button class="btn btn-primary" onclick="Toastify({text: '可悲！网站还没有关注的功能～'}).showToast()">关注</button>
             </div>
             {% include "posts/aside.html" %}
         </aside>
