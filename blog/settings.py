@@ -10,20 +10,30 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 import os
+<<<<<<< HEAD
 import environ
+=======
+>>>>>>> 17a748cf651fdf040464b4754123bcd325bd496f
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+<<<<<<< HEAD
 env = environ.Env()
 environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
+=======
+>>>>>>> 17a748cf651fdf040464b4754123bcd325bd496f
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+<<<<<<< HEAD
 SECRET_KEY = env("DJANGO_SECRET")
+=======
+SECRET_KEY = '***REMOVED***'
+>>>>>>> 17a748cf651fdf040464b4754123bcd325bd496f
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG', 'off') == 'on'
@@ -90,7 +100,11 @@ DATABASES = {
         'HOST': 'db',
         'PORT': 3306,
         'USER': 'root',
+<<<<<<< HEAD
         'PASSWORD': env('DB_PASSWORD'),
+=======
+        'PASSWORD': '***REMOVED***',
+>>>>>>> 17a748cf651fdf040464b4754123bcd325bd496f
         'OPTIONS': {
             'charset': 'utf8mb4'
         },
