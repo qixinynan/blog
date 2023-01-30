@@ -26,7 +26,7 @@ services:
     networks:
       - db_network
     environment:
-      - MYSQL_ROOT_PASSWORD=Bcyh#@2006
+      - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
       - MYSQL_DATABASE=blog
       - MYSQL_CHARACTER_SET_SERVER=utf8mb4
       - MYSQL_COLLATION_SERVER=utf8mb4_unicode_ci
