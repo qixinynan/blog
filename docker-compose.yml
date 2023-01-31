@@ -39,8 +39,8 @@ services:
     depends_on:
       - app
     volumes:
-      - ./config/nginx.conf:/etc/nginx/nginx.conf
-      - ./config/mime.types:/etc/nginx/mime.types
+      - ./config/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./config/mime.types:/etc/nginx/mime.types:ro
       - .:/app
     ports:
       - "8081:80"
