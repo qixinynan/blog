@@ -1,7 +1,7 @@
 if [ "$1" = "build" ]
 then
   echo "run with build mode";
-  docker-compose up -d
+  docker-compose up -d --build
 else
   echo "run with debug mode";
   docker-compose run -e DEBUG=on -p 8000:8000 app
