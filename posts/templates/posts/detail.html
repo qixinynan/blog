@@ -7,6 +7,7 @@
 {% block author %}{{ post.author.username }}{% endblock %}
 {% block css %}
     <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/11.7.0/styles/base16/monokai.min.css">
+    <link rel="stylesheet" href="{% static 'css/contents.css' %}">
 {% endblock %}
 {% block js %}
     <script src="https://cdn.staticfile.org/highlight.js/11.7.0/highlight.min.js"></script>
@@ -16,7 +17,7 @@
 {% load admin_list %}
 {% block content %}
     <div class="d-flex">
-        <div class="max-width w-100">
+        <div class="content max-width w-100">
             <article class="card border-0 card-body mx-md-1 rounded-0 rounded-md-2 align-self-start">
                 <div class="border-bottom py-2 fs-note">
                     <h1 class="h2">{{ post.title }}</h1>

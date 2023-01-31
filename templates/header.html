@@ -2,16 +2,16 @@
 <header class="navbar-fixed-container">
     <nav class="navbar bg-white navbar-light navbar-expand-md fixed-top nav-shadow">
       <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#header-navbar" aria-controls="header-navbar" aria-expanded="false" style="border: none">
-              <span class="navbar-toggler-icon"></span>
-        </button>
         {# Navbar-PC #}
         <a class="navbar-brand d-none d-md-flex ms-5 me-4" href="/">
             <img src="{% static 'img/icon/icon-main.svg' %}" width="30" alt="图标">
             <img class="ms-2" src="{% static 'img/icon/icon-text.svg' %}" width="40" alt="图标文字">
         </a>
         {# Navbar-Mobile  #}
-        <a class="navbar-brand d-flex d-md-none flex-grow-1 justify-content-center" href="/">
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#header-navbar" aria-controls="header-navbar" aria-expanded="false">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand d-flex d-md-none flex-grow-1 justify-content-center" href="/" style="">
             <img src="{% static 'img/icon/icon-main.svg' %}" width="30" alt="图标">
             <img class="ms-2" src="{% static 'img/icon/icon-text.svg' %}" width="40" alt="图标文字">
         </a>

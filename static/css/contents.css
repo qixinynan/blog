@@ -1,0 +1,18 @@
+.content blockquote {
+    display: block;
+
+    margin-inline-start: 40px;
+    margin-inline-end: 40px;
+
+    padding: 2px 8px 2px 20px;
+
+    border-style: solid;
+    border-color: #ccc;
+    border-width: 0;
+    border-left-width: 5px;
+}
+
+.content blockquote p {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
