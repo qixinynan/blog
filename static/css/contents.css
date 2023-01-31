@@ -1,8 +1,8 @@
 .content blockquote {
     display: block;
 
-    margin-inline-start: 40px;
-    margin-inline-end: 40px;
+    margin-inline-start: 1rem;
+    margin-inline-end: 1rem;
 
     padding: 2px 8px 2px 20px;
 
