@@ -8,6 +8,10 @@
     --app-light-inverse: #7e8299;
 }
 
+a {
+    text-decoration: none;
+}
+
 /*定制Bootstrap*/
 .btn-primary {
     color: var(--app-primary-inverse);

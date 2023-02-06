@@ -8,6 +8,7 @@ from posts.models import Post
 class PostSitemap(Sitemap):
     changefreq = 'weekly'
     priority = 0.7
+    protocol = 'https'
 
     def items(self):
         return Post.objects.all().order_by('-publish_date')
@@ -22,6 +23,7 @@ class PostSitemap(Sitemap):
 class UserSitemap(Sitemap):
     changefreq = 'weekly'
     priority = 0.6
+    protocol = 'https'
 
     def items(self):
         return User.objects.all()
@@ -33,6 +35,7 @@ class UserSitemap(Sitemap):
 class StaticViewSitemap(Sitemap):
     priority = 0.5
     changefreq = 'daily'
+    protocol = 'https'
 
     def items(self):
         return ['index', 'posts:index', 'users:login']
