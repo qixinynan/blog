@@ -7,5 +7,6 @@ media/
 .env
 .idea/
 develop/
+sh/
 static/admin
 static/ckeditor
