@@ -6,3 +6,6 @@ config/ssl
 media/
 .env
 .idea/
+develop/
+static/admin
+static/ckeditor
