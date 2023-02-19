@@ -32,7 +32,7 @@ SECRET_KEY = env("DJANGO_SECRET")
 DEBUG = os.environ.get('DEBUG', 'off') == 'on'
 
 ALLOWED_HOSTS = ['*']
-CSRF_TRUSTED_ORIGINS = ['https://www.xinies.cn']
+CSRF_TRUSTED_ORIGINS = ['https://www.xinies.cn', 'https://xinies.cn']
 
 # Application definition
 
